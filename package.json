@@ -1,11 +1,11 @@
 {
     "name":             "itemize",
     "version":          "9.9.9",
-    "author":           "Alan Gutierrez <alan@prettyrobots.com>",
     "description":      "Extract records from JSON streams for display.",
     "keywords":
     [
     ],
+    "author":           "Alan Gutierrez <alan@prettyrobots.com>",
     "contributors":     [],
     "homepage":         "https://github.com/bigeasy/itemize",
     "bugs":             "https://github.com/bigeasy/itemize/issues",
