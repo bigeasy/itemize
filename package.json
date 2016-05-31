@@ -9,11 +9,7 @@
     "contributors":     [],
     "homepage":         "https://github.com/bigeasy/itemize",
     "bugs":             "https://github.com/bigeasy/itemize/issues",
-    "licenses":
-    [{
-                        "type": "MIT",
-                        "url": "http://github.com/bigeasy/itemize/raw/master/LICENSE"
-    }],
+    "license":          "MIT",
     "repository":
     {
                         "type": "git",
@@ -24,7 +20,7 @@
     },
     "devDependencies":
     {
-                        "proof":            "0.0.47"
+                        "proof":            "1.x"
     },
     "scripts":
     {
