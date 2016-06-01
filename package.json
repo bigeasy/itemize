@@ -22,6 +22,7 @@
     {
                         "proof":            "1.x"
     },
+    "main":             "itemize",
     "scripts":
     {
                         "test": "proof platform win32 && proof test */*/*.t.js || t/test"
