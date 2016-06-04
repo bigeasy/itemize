@@ -56,7 +56,7 @@ Parser.prototype.parse = function (string) {
         return object
     }
     // TODO Check if null or number.
-    return name.remaining
+    return name.value
 }
 
 module.exports = function (string) {
