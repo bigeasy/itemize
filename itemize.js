@@ -24,6 +24,17 @@ Parser.prototype._unquoted = function (spaces, first, remaining) {
     return { value: first + $[1], remaining: $[2], unquoted: true }
 }
 
+var quotes = {
+    '"': /^((?:[^"\\]*|(?:\\.))*)"(.*)$/
+}
+
+
+Parser.prototype._quoted = function (spaces, quote, remaining) {
+    this._offset += spaces.length + 1
+    var $ = quotes[quote].exec(remaining)
+    return { value: $[1], remaining: $[2], unquoted: false }
+}
+
 Parser.prototype._value = function (string) {
     var $
 
@@ -47,6 +58,19 @@ Parser.prototype._value = function (string) {
     }
 }
 
+var numeric = /^\s*(?:NaN|-?(?:(?:\d+|\d*\.\d+)(?:[E|e][+|-]?\d+)?|Infinity))\s*$/
+
+function type (value) {
+    if (value.unquoted) {
+        if (value.value == 'null') {
+            return null
+        } else if (numeric.test(value.value)) {
+            return Number(value.value)
+        }
+    }
+    return value.value
+}
+
 Parser.prototype.parse = function (string) {
     var name = this._name(string)
     if (/\S/.test(name.remaining)) {
@@ -56,7 +80,7 @@ Parser.prototype.parse = function (string) {
         return object
     }
     // TODO Check if null or number.
-    return name.value
+    return type(name)
 }
 
 module.exports = function (string) {
